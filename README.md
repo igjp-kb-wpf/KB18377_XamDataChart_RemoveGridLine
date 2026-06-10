@@ -1,2 +1,2 @@
 # KB18377_XamDataChart_RemoveGridLine
-XamDataChart - チャート内の目盛り線を非表示にし、プロット領域の外枠だけを表示する方法
+XamDataChart - プロット領域にぐるりと罫線を引く方法

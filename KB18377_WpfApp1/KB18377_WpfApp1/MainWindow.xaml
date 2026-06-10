@@ -1,0 +1,41 @@
+<Window x:Class="KB18377_WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ig="http://schemas.infragistics.com/xaml"
+        xmlns:local="clr-namespace:KB18377_WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <ig:XamDataChart
+            x:Name="xamDataChart1"
+            Margin="10"
+            Title="成績分布 (国語)"
+            PlotAreaBorderBrush="{x:Static ig:AxisDefaults.Axis_MajorBrush}"
+            PlotAreaBorderThickness="1">
+            <ig:XamDataChart.Axes>
+                <ig:CategoryXAxis
+                    x:Name="xAxis"
+                    Title="点数 (点)"
+                    ItemsSource="{Binding GradeFrequencyDistributions}"
+                    Label="{}{Grade}"/>
+                <ig:NumericYAxis
+                    x:Name="yAxis"
+                    Title="人数 (人)"
+                    MinimumValue="0" MaximumValue="30"/>
+            </ig:XamDataChart.Axes>
+            <ig:XamDataChart.Series>
+                <ig:ColumnSeries
+                    XAxis="{Binding ElementName=xAxis}"
+                    YAxis="{Binding ElementName=yAxis}"
+                    ItemsSource="{Binding GradeFrequencyDistributions}"
+                    ValueMemberPath="Frequency">
+                </ig:ColumnSeries>
+            </ig:XamDataChart.Series>
+        </ig:XamDataChart>
+    </Grid>
+</Window>
