@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace KB18377_WpfApp1.Model;
 
 class GradeFrequencyDistribution
